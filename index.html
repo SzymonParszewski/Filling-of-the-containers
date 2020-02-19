@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Napełnianie kubków</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+    h1 {
+        font-family: 'Lobster', cursive;
+        text-align: center;
+        font-size: 60px;
+        transform: rotate(-10deg);
+    }
+    .drink1 {
+        width: 200px;
+        height: 200px;
+        border-right: 3px solid black;
+        border-left: 3px solid black;
+        border-bottom: 3px solid black;
+        border-radius: 20px;
+        cursor: pointer;
+        float: left;
+        margin: 20px;
+        background-size: 200% 200%;
+        transition: background-position 3000ms;
+    }
+        .niebieska {
+            background-image: linear-gradient(to top, blue 50%, transparent 50%);
+        }
+        .zielona {
+            background-image: linear-gradient(to top, green 50%, transparent 50%);
+        }
+        .zolta {
+            background-image: linear-gradient(to top, yellow 50%, transparent 50%);
+        }
+        .czarna {
+            background-image: linear-gradient(to top, black 50%, transparent 50%);
+        }
+        .rozowa {
+            background-image: linear-gradient(to top, pink 50%, transparent 50%);
+        }
+        .czerwona {
+            background-image: linear-gradient(to top, red 50%, transparent 50%);
+        }
+        
+</style>
+        <body>
+            <h1>Filling of the containers</h1>
+            <div class="drink1 niebieska" poziom="0"></div>
+            <div class="drink1 zielona" poziom="0"></div>
+            <div class="drink1 zolta" poziom="0"></div>
+            <div class="drink1 czarna" poziom="0"></div> 
+            <div class="drink1 rozowa" poziom="0"></div>
+            <div class="drink1 czerwona" poziom="0"></div>
+        </body>
+        <script>
+            function drinkklik(evt){
+                let poziom= Number(this.getAttribute('poziom'));
+                poziom +=25;
+                if(poziom <= 96) {
+                    this.style.backgroundPosition="0 "+ poziom +"%";
+                }
+                this.setAttribute('poziom',poziom);
+            }
+            let drinki=document.querySelectorAll('.drink1');
+            drinki.forEach(drink1 => {
+                drink1.addEventListener('click',drinkklik)
+            })
+        </script>
+</html>
